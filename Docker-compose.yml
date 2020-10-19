@@ -1,0 +1,14 @@
+# Version of docker composer for which we are writting this file
+version: "3"
+
+# Services which made our project
+services:
+    app:
+        build:
+            context: .
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./app:/app
+        command: >
+            sh -C "python manage.py runserver 0.0.0.0:8000"
